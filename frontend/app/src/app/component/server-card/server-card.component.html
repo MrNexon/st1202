@@ -1,0 +1,12 @@
+<div class="ServerCard" [ngClass]="{
+  ServerCard_right: orientation === 'right',
+  ServerCard_left: orientation === 'left'
+}">
+  <div class="ServerCard-Image" [style]="'background-image: url(\''+ server.icon_src + '\')'">
+  </div>
+  <div class="ServerCard-Text">
+    <h3>{{server.name}}</h3>
+    <span>{{server.online}}/{{server.slots}}</span>
+    <p>{{server.description}}</p>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="ActionItem" [attr.data-color]="color">
+  <div class="ActionItem-Icon">
+    <svg-icon class="ActionItem-Icon-Wrapper" name="{{icon}}"></svg-icon>
+  </div>
+  <div class="ActionItem-Text">
+    <h2>{{header}}</h2>
+    <span><ng-content></ng-content></span>
+  </div>
+  <app-outline-button [attr.data-color]="color">{{actionText}}</app-outline-button>
+</div>

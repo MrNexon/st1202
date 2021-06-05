@@ -1,0 +1,43 @@
+:host {
+  display: flex;
+  height: var(--header-height);
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 var(--page-margin);
+  position: relative;
+  z-index: 10;
+}
+
+.Header {
+  &-Logo {
+    width: 150px;
+    height: 40px;
+    background-image: url("../../../assets/images/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  &-Links {
+    display: flex;
+    align-items: center;
+
+    a {
+      font-size: 15px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-right: 60px;
+      color: white;
+      text-decoration: none;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+    }
+  }
+}
+
+#header_admin {
+  color: var(--accent-color);
+}

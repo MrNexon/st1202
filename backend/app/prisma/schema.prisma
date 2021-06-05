@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               Int      @id @default(autoincrement())
+  nickname         String   @unique
+  password         String
+  email            String   @unique
+  ban              Boolean  @default(false)
+  balance          Float
+  create_timestamp DateTime @default(now())
+  cloak_unlock     Boolean  @default(false)
+  hd_skin_unlock   Boolean  @default(false)
+  is_admin         Boolean  @default(false)
+}
+
+model Server {
+  id          Int    @id @default(autoincrement())
+  name        String @unique
+  description String
+  stat_url    String
+  slots       Int
+  online      Int
+  icon_src    String
+}
+
+model Content {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  value String
+}
+
+model SocialData {
+  id             Int     @id @default(autoincrement())
+  type           String
+  header         String
+  button_text    String
+  link           String
+  display_block  Boolean
+  display_footer Boolean
+}
+
+model Launcher {
+  platform String  @id
+  link     String
+  display  Boolean
+}

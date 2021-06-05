@@ -1,0 +1,18 @@
+<app-header></app-header>
+<app-card>
+  <app-page-header>Вход</app-page-header>
+  <form class="Form" [formGroup]='authForm' (submit)='login()'>
+    <div class="Field">
+      <svg-icon class="Field-Icon" name="i-person"></svg-icon>
+      <input formControlName='username' type='text' placeholder='Введите никнейм'>
+    </div>
+    <div class="Field">
+      <svg-icon class="Field-Icon" name="i-key"></svg-icon>
+      <input formControlName='password' type='password' placeholder='Введите пароль'>
+    </div>
+    <app-field-validator [show]="validator !== null">{{validator}}</app-field-validator>
+    <app-button type='submit' [disabled]="inProgress">{{inProgress ? 'Вход...' : 'Войти'}}</app-button>
+  </form>
+</app-card>
+<app-footer footerLogo='{{pageData.footerLogo}}' footerDescription='{{pageData.footerCopyright}}' [social]='socialList'></app-footer>
+

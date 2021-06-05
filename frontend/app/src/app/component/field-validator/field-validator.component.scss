@@ -1,0 +1,26 @@
+.FieldValidator {
+  display: flex;
+  color: #AF0003;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+
+  span {
+    font-size: 16px;
+    transform: translateY(-.5px);
+  }
+
+  &-Icon {
+    svg rect {
+      fill: #AF0003;
+    }
+
+    margin-right: 6px;
+  }
+
+  &[data-show="false"] {
+    opacity: 0;
+  }
+}

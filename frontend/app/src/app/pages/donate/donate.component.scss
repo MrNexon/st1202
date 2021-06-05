@@ -1,0 +1,39 @@
+.Field {
+  position: relative;
+  background-color: rgba(50, 50, 50, 0.25);
+  padding: 20px 20px 20px 25px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  min-width: 350px;
+  margin-bottom: 20px;
+
+  box-sizing: border-box;
+
+  input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    width: 100%;
+  }
+
+  &-Icon {
+    margin-right: 15px;
+  }
+}
+
+input.ng-invalid:before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  border: 1px solid #AF0003;
+}

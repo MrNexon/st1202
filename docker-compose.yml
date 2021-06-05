@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+
+  backend:
+    build: ./backend
+    container_name: backend
+    command: >
+        bash -c "npx prisma generate &&
+        npm run build &&
+        npm run start:prod"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend/app:/usr/st1202/backend
+      - /usr/st1202/backend/node_modules
+    links: 
+      - db
+    restart: always
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    command: >
+        bash -c "npm start"
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./frontend/app:/usr/st1202/frontend
+      - /usr/st1202/frontend/node_modules
+    links: 
+      - backend
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+    restart: always
+    ports:
+      - 8080:80
+
+  db:
+    image: mysql
+    container_name: db
+    command: --default-authentication-plugin=mysql_native_password --lower_case_table_names=1
+    environment:
+      MYSQL_ROOT_PASSWORD: v_z2LV.lprZ4Tw*r
+    volumes:
+      - ./db:/var/lib/mysql
+    restart: always

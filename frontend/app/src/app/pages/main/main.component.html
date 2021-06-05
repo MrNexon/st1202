@@ -1,0 +1,58 @@
+<app-header></app-header>
+<div class="Start" id="main_home">
+  <div class="Start-Wrapper">
+    <div class="BigLogo"></div>
+    <app-separator></app-separator>
+    <div class="Row Row_BigCounter">
+      <app-big-counter value="{{currentOnline}}">{{pageData.mainHomeCounterCurrentOnline}}</app-big-counter>
+      <app-big-counter value="{{serverList?.length}}">{{pageData.mainHomeCounterServers}}</app-big-counter>
+      <app-big-counter value="{{usersCount}}">{{pageData.mainHomeCounterUsers}}</app-big-counter>
+    </div>
+    <app-separator></app-separator>
+    <app-big-button (click)="anchorMove('main_begin')">{{pageData.mainHomeButtonStart}}</app-big-button>
+  </div>
+  <div class="Start-Wing Start-Wing_left"></div>
+  <div class="Start-Wing Start-Wing_right"></div>
+</div>
+<app-card [filled]="true" id="main_begin">
+  <app-card-header header="{{pageData.mainStartHeader}}"></app-card-header>
+  <div class="Row Row_ActionList">
+    <app-action-item header="{{pageData.mainStartStep1Header}}" icon="b-reg" color="blue" actionText="{{pageData.mainStartStep1Button}}" (click)="navigate('reg')">
+      {{pageData.mainStartStep1Description}}
+    </app-action-item>
+    <app-action-item header="{{pageData.mainStartStep2Header}}" icon="b-launcher" color="orange" actionText="{{pageData.mainStartStep2Button}}" (click)='showDialog()'>
+      {{pageData.mainStartStep2Description}}
+    </app-action-item>
+    <app-action-item header="{{pageData.mainStartStep3Header}}" icon="b-servers" color="white" actionText="{{pageData.mainStartStep3Button}}" (click)="anchorMove('main_servers')">
+      {{pageData.mainStartStep3Description}}
+    </app-action-item>
+  </div>
+</app-card>
+
+
+<app-card [filled]="false" *ngIf="serverList" id="main_servers">
+  <app-card-header header="{{pageData.mainMonitoringHeader}}">
+    <span class="StatisticNow">{{pageData.mainMonitoringCounter}}: <span class="StatisticNow-Value">{{currentOnline}}</span></span>
+  </app-card-header>
+
+  <div class="ServerCardList">
+    <app-server-card *ngFor="let server of serverList; let i = index" orientation="{{i % 2 == 0 ? 'left' : 'right'}}" [server]="server"></app-server-card>
+  </div>
+
+</app-card>
+
+<app-card [filled]="false">
+  <app-card-header header="{{pageData.mainSocialHeader}}"></app-card-header>
+  <div class="Row Row_ActionList">
+    <div *ngFor='let social of socialList;' class='soc'>
+      <app-social-info *ngIf='social.display_block' header='{{social.header}}' button_text='{{social.button_text}}' link='{{social.link}}'></app-social-info>
+    </div>
+  </div>
+</app-card>
+
+<app-footer footerLogo='{{pageData.footerLogo}}' footerDescription='{{pageData.footerCopyright}}' [social]='socialList'></app-footer>
+<app-dialog-window #dialog header='Выберите платформу'>
+  <div class='DialogButtons'>
+    <div *ngFor='let launcher of launcherList;'><a href='{{launcher.link}}'><app-outline-button>{{launcher.platform}}</app-outline-button></a></div>
+  </div>
+</app-dialog-window>

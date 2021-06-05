@@ -1,0 +1,49 @@
+{
+  "iconImageFiles": [
+    {
+      "iconName": "b-launcher",
+      "iconPath": "/assets/images/svg/b-launcher.svg"
+    },
+    {
+      "iconName": "b-servers",
+      "iconPath": "/assets/images/svg/b-servers.svg"
+    },
+    {
+      "iconName": "b-reg",
+      "iconPath": "/assets/images/svg/b-reg.svg"
+    },
+    {
+      "iconName": "i-vk",
+      "iconPath": "/assets/images/svg/i-vk.svg"
+    },
+    {
+      "iconName": "i-discord",
+      "iconPath": "/assets/images/svg/i-discord.svg"
+    },
+    {
+      "iconName": "i-youtube",
+      "iconPath": "/assets/images/svg/i-youtube.svg"
+    },
+    {
+      "iconName": "i-person",
+      "iconPath": "/assets/images/svg/i-person.svg"
+    },
+    {
+      "iconName": "i-email",
+      "iconPath": "/assets/images/svg/i-email.svg"
+    },
+    {
+      "iconName": "i-key",
+      "iconPath": "/assets/images/svg/i-key.svg"
+    },
+    {
+      "iconName": "i-close",
+      "iconPath": "/assets/images/svg/i-close.svg"
+    },
+    {
+      "iconName": "i-credit-card",
+      "iconPath": "/assets/images/svg/i-credit-card.svg"
+    }
+  ],
+  "customIcons": []
+}

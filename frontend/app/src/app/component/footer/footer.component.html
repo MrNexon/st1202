@@ -1,0 +1,12 @@
+<div class="Footer">
+  <div class="Footer-Text">
+    <span>{{footerLogo}}</span>
+    <p [innerHTML]='footerDescription'></p>
+  </div>
+  <div class="Footer-Icons" *ngIf='social'>
+    <div *ngFor='let s of social;'><a *ngIf='s.display_footer' href="{{s.link}}"><svg-icon name="{{'i-' + s.type}}"></svg-icon></a></div>
+  </div>
+
+  <div class="Footer-Wing Footer-Wing_left"></div>
+  <div class="Footer-Wing Footer-Wing_right"></div>
+</div>

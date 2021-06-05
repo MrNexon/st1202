@@ -1,0 +1,84 @@
+:host {
+  width: 100%;
+}
+
+.Button {
+  background-color: rgba(50, 50, 50, 0.25);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+  transition: .1s ease;
+  &:active {
+    transform: scale(.95);
+  }
+
+  &[data-size="s"] {
+    padding: 10px 18px;
+  }
+
+  &:disabled {
+    transform: none !important;
+    cursor: auto;
+  }
+
+  &-Content {
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+  }
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  &_accent {
+    background-color: var(--accent-color);
+  }
+
+  &_accent > &-Content {
+    color: black;
+  }
+
+  &_accent > &-Progress {
+    &::-webkit-progress-value, &::-moz-progress-bar {
+      background-color: black;
+    }
+  }
+
+  &_destructive {
+    background-color: var(--destructive-color);
+  }
+
+  &_positive {
+    background-color: var(--positive-color);
+  }
+
+  &-Progress {
+    &, &::-webkit-progress-bar {
+      background-color: transparent;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      z-index: 0;
+      opacity: .1;
+    }
+
+    &::-webkit-progress-value, &::-moz-progress-bar {
+      background-color: white;
+    }
+  }
+}

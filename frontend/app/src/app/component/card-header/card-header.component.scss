@@ -1,0 +1,15 @@
+:host {
+  margin-bottom: 50px;
+
+}
+
+.Card {
+  &-Header {
+    text-align: center;
+
+    h1 {
+      font-size: 32px;
+      text-transform: uppercase;
+    }
+  }
+}

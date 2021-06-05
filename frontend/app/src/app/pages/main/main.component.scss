@@ -1,0 +1,132 @@
+.Start {
+  background-image: url("../../../assets/images/background.png");
+  background-position: center;
+  background-size: cover;
+  margin-top: calc(var(--header-height) * -1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 800px;
+  height: 100vh;
+
+  &-Wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--header-height) 0;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: -30px;
+      min-height: 800px;
+
+      background: linear-gradient(0deg, #0E0D0E 15%, rgba(255, 255, 255, 0) 130%);
+      z-index: 0;
+    }
+  }
+
+  &-Wing {
+    position: absolute;
+    width: 716px;
+    height: 245px;
+    z-index: 100;
+    bottom: -50px;
+
+    &_left {
+      background-image: url("../../../assets/images/svg/d-wing.svg");
+      left: -75px;
+      transform: scale(.80);
+    }
+
+    &_right {
+      background-image: url("../../../assets/images/svg/d-wing.svg");
+      right: -75px;
+      transform: scaleX(-1) scale(.80);
+    }
+  }
+}
+
+.BigLogo {
+  background-image: url("../../../assets/images/big_logo.png");
+  width: 650px;
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+}
+.soc {
+  margin-right: 80px;
+}
+.Row {
+  display: flex;
+  flex-direction: row;
+
+  &_BigCounter {
+    margin-right: -40px;
+  }
+
+
+  &_ActionList {
+    app-action-item {
+      margin-right: 80px;
+    }
+
+
+    margin-right: -80px;
+  }
+
+  z-index: 1;
+}
+
+.ServerCardList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  app-server-card {
+    margin-right: 40px;
+    margin-bottom: 50px;
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+  }
+
+  margin-bottom: -50px;
+
+  max-width: 810px;
+}
+
+.StatisticNow {
+  font-size: 28px;
+
+  &-Value {
+    font-weight: 500;
+    color: var(--accent-color);
+  }
+}
+
+
+.grecaptcha-badge {
+  display: none !important;
+}
+
+.DialogButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+  margin-right: -20px;
+
+  div {
+    margin-right: 20px;
+  }
+}

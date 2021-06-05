@@ -1,0 +1,11 @@
+<div class="Header-Logo"></div>
+<div class="Header-Links">
+  <a (click)="anchorMove('main_home')">главная</a>
+  <a (click)="anchorMove('main_begin')">начать игру</a>
+  <a (click)="anchorMove('main_servers')">сервера</a>
+  <a routerLink="/donate">донат</a>
+  <a *ngIf="isLogin" routerLink="/lk">личный кабинет</a>
+  <a *ngIf="!isLogin" routerLink="/login">войти</a>
+
+  <a *ngIf="isAdmin" id="header_admin" routerLink="/admin/main">панель управления</a>
+</div>

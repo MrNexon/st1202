@@ -1,0 +1,111 @@
+.Column {
+  margin-top: 50px;
+
+  color: white;
+  margin-left: var(--page-margin);
+
+  h1 {
+    font-size: 49px;
+  }
+  h1, h2 {
+    margin-bottom: 25px;
+  }
+
+  h3 {
+    font-weight: 500;
+    font-size: 16px;
+  }
+}
+
+.Group {
+  position: relative;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.31);
+  border-radius: 15px;
+  margin-bottom: 30px;
+  width: min-content;
+  padding-top: 40px;
+
+  h3 {
+    background-color: rgb(47, 47, 47);
+    padding: 5px 15px;
+    position: absolute;
+    top: -15px;
+
+  }
+
+  .Field:last-child {
+    margin: 0;
+  }
+}
+
+
+.Field {
+  position: relative;
+  background-color: rgba(50, 50, 50, 0.25);
+  padding: 20px 20px 20px 25px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 600px;
+  margin-bottom: 20px;
+
+  box-sizing: border-box;
+
+  input, textarea {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    flex: 6;
+  }
+
+  textarea {
+    resize: none;
+    height: 150px;
+  }
+
+  label {
+    flex: 4;
+    margin-right: 30px;
+    padding-right: 10px;
+    height: 100%;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.27);
+  }
+
+  &-Icon {
+    margin-right: 15px;
+  }
+}
+
+.FixedButtons {
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 20px var(--page-margin);
+  background-color: #1a1a1a;
+
+  app-button {
+    margin-right: 20px;
+  }
+}
+
+.Sep {
+  width: 100%;
+  height: 1px;
+  margin: 10px 0;
+}
+
+.Footer {
+  margin-bottom: 140px;
+}

@@ -1,0 +1,24 @@
+<app-header-admin></app-header-admin>
+<div class='Column'>
+  <h1>Лаунчеры</h1>
+</div>
+<div class='Column'>
+  <div class='Group' *ngFor='let launcher of launcherList'>
+    <h3>{{launcher.platform}}</h3>
+    <div class="Field">
+      <label>Ссылка</label>
+      <input type='text' placeholder='Text' [(ngModel)]='launcher.link'>
+    </div>
+    <div class="Field">
+      <label>Отображать</label>
+      <input type='checkbox'  [(ngModel)]='launcher.display'>
+    </div>
+  </div>
+</div>
+
+<div class='Footer'></div>
+
+<div class='FixedButtons'>
+  <app-button color='accent' size='s' [progressValue]='100' [progressBar]='dataUpdate' [disabled]='dataUpdate' (click)='update()'>Сохранить</app-button>
+  <app-button color='destructive' size='s' [progressValue]='100' [progressBar]='launcherList.length < 1' [disabled]='launcherList.length < 1' (click)='cancel()'>Отмена</app-button>
+</div>

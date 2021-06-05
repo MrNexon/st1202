@@ -1,0 +1,8 @@
+<div class='DialogWindow' *ngIf='vis'>
+  <div class='DialogWindow-BG' (click)='hide()'></div>
+  <div class='DialogWindow-Wrapper'>
+    <h2>{{header}}</h2>
+    <svg-icon class="DialogWindow-Wrapper-Icon-Wrapper" name="i-close" (click)='hide()'></svg-icon>
+    <div class='DialogWindow-Wrapper-Content'><ng-content></ng-content></div>
+  </div>
+</div>

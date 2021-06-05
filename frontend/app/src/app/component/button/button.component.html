@@ -1,0 +1,6 @@
+<button class="{{'Button ' + 'Button_' + color}}" [type]='type' [attr.data-color]="color" [disabled]="disabled" [attr.data-size]='size'>
+  <div class='Button-Content'>
+    <ng-content></ng-content>
+  </div>
+  <progress class="Button-Progress" [max]="progressMax" [value]="progressValue"></progress>
+</button>

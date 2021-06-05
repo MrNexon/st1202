@@ -1,0 +1,61 @@
+:host {
+  display: inline-block;
+}
+
+.ServerCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(69, 69, 69, 0.25);
+  width: 385px;
+  height: 160px;
+  box-sizing: border-box;
+  padding: 10px 40px;
+
+  &-Image {
+    min-width: 100px;
+    height: 100px;
+    margin-right: 30px;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &-Text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: 2px;
+    }
+
+    span {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+  }
+
+  &_left {
+    clip-path: polygon(calc(100% - 55px) 0, 100% 55px, 100% 100%, 55px 100%, 0% calc(100% - 55px), 0% 0%);
+
+    &-Image {
+      transform: translateY(-10px);
+    }
+  }
+
+  &_right {
+    clip-path: polygon(55px 0%, 0% 55px, 0% 100%, calc(100% - 55px) 100%, 100% calc(100% - 55px), 100% 0%);
+
+    &-Image {
+      transform: translateY(-10px);
+    }
+  }
+}

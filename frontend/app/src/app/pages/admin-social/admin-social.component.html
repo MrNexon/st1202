@@ -1,0 +1,46 @@
+<app-header-admin></app-header-admin>
+<div class='Column'>
+  <h1>Социальные сети</h1>
+</div>
+<div class='Column'>
+  <div class='Group' *ngFor='let social of socialList; let i = index'>
+    <h3>Объект {{i + 1}}</h3>
+    <a (click)='delete(social.id)'>Удалить</a>
+    <div class="Field">
+      <label>Тип</label>
+      <select [(ngModel)]='social.type'>
+        <option value='vk'>ВКонтакте</option>
+        <option value='youtube'>YouTube</option>
+        <option value='discord'>Discord</option>
+      </select>
+    </div>
+    <div class="Field">
+      <label>Заголовок</label>
+      <input type='text' placeholder='Text' [(ngModel)]='social.header'>
+    </div>
+    <div class="Field">
+      <label>Текст кнопки</label>
+      <input type='text' placeholder='Text' [(ngModel)]='social.button_text'>
+    </div>
+    <div class="Field">
+      <label>Ссылка</label>
+      <input type='text' placeholder='Text' [(ngModel)]='social.link'>
+    </div>
+    <div class="Field">
+      <label>Отображать в социальных сетях</label>
+      <input type='checkbox' [(ngModel)]='social.display_block'>
+    </div>
+    <div class="Field">
+      <label>Отображать в footer</label>
+      <input type='checkbox' [(ngModel)]='social.display_footer'>
+    </div>
+  </div>
+</div>
+
+<div class='Footer'></div>
+
+<div class='FixedButtons'>
+  <app-button color='positive' size='s' (click)='add()'>Добавить</app-button>
+  <app-button color='accent' size='s' [progressValue]='100' [progressBar]='dataUpdate' [disabled]='dataUpdate' (click)='update()'>Сохранить</app-button>
+  <app-button color='destructive' size='s' [progressValue]='100' [progressBar]='socialList.length < 1' [disabled]='socialList.length < 1' (click)='cancel()'>Отмена</app-button>
+</div>

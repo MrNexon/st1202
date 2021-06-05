@@ -1,0 +1,173 @@
+<app-header-admin></app-header-admin>
+<div class='Column'>
+  <h1>Основное</h1>
+</div>
+<div class='Column'>
+  <h2>Настройки страницы</h2>
+
+  <!--<div class='Group'>
+    <h3>Meta информация</h3>
+    <div class="Field">
+      <label for='pageTitle'>Заголовок страниц (Title)</label>
+      <input id='pageTitle' type='text' placeholder='Text' [(ngModel)]='contentData.'>
+    </div>
+    <div class="Field">
+      <label for='pageDescription'>Описание страницы (Meta Description)</label>
+      <textarea id='pageDescription' placeholder='Multiline Text'></textarea>
+    </div>
+  </div>
+-->
+  <div class='Group'>
+    <h3>Footer</h3>
+
+    <div class="Field">
+      <label for='footerTextLogo'>Logo Text</label>
+      <input id='footerTextLogo' type='text' placeholder='Text' [(ngModel)]='contentData.footerLogo'>
+    </div>
+
+    <div class="Field">
+      <label for='textFooterCopyright'>Copyright Text</label>
+      <textarea id='textFooterCopyright' placeholder='Multiline Text' [(ngModel)]='contentData.footerCopyright'></textarea>
+    </div>
+  </div>
+</div>
+
+<div class='Column'>
+  <h2>Контент</h2>
+
+  <div class='Group'>
+    <h3>Main Home</h3>
+    <div class="Field">
+      <label for='startGameButton'>Кнопка StartGame</label>
+      <input id='startGameButton' type='text' placeholder='Text' [(ngModel)]='contentData.mainHomeButtonStart'>
+    </div>
+
+    <div class="Field">
+      <label for='textCurrentOnlineCount'>Текст CurrentOnlineCount</label>
+      <input id='textCurrentOnlineCount' type='text' placeholder='Text' [(ngModel)]='contentData.mainHomeCounterCurrentOnline'>
+    </div>
+    <div class="Field">
+      <label for='textServersCount'>Текст ServersCount</label>
+      <input id='textServersCount' type='text' placeholder='Text' [(ngModel)]='contentData.mainHomeCounterServers'>
+    </div>
+    <div class="Field">
+      <label for='textUsersCount'>Текст UsersCount</label>
+      <input id='textUsersCount' type='text' placeholder='Text' [(ngModel)]='contentData.mainHomeCounterUsers'>
+    </div>
+  </div>
+
+
+  <div class='Group'>
+    <h3>Main Begin</h3>
+    <div class="Field">
+      <label for='startGameText'>Заголовок StartGame</label>
+      <input id='startGameText' type='text' placeholder='Text' [(ngModel)]='contentData.mainStartHeader'>
+    </div>
+    <div class='Sep'></div>
+
+    <div class="Field">
+      <label for='headerStep1'>Заголовок Step1</label>
+      <input id='headerStep1' type='text' placeholder='Text' [(ngModel)]='contentData.mainStartStep1Header'>
+    </div>
+    <div class="Field">
+      <label for='textStep1'>Текст Step1</label>
+      <textarea id='textStep1' type='text' placeholder='Text' [(ngModel)]='contentData.mainStartStep1Description'></textarea>
+    </div>
+    <div class="Field">
+      <label for='buttonStep1'>Кнопка Step1</label>
+      <input id='buttonStep1' type='text' placeholder='Text' [(ngModel)]='contentData.mainStartStep1Button'>
+    </div>
+    <div class='Sep'></div>
+
+    <div class="Field">
+      <label for='headerStep2'>Заголовок Step2</label>
+      <input id='headerStep2' type='text' placeholder='Text' [(ngModel)]='contentData.mainStartStep2Header'>
+    </div>
+    <div class="Field">
+      <label for='textStep2'>Текст Step2</label>
+      <textarea id='textStep2' type='text' placeholder='Text' [(ngModel)]='contentData.mainStartStep2Description'></textarea>
+    </div>
+    <div class="Field">
+      <label for='buttonStep2'>Кнопка Step2</label>
+      <input id='buttonStep2' type='text' placeholder='Text' [(ngModel)]='contentData.mainStartStep2Button'>
+    </div>
+    <div class='Sep'></div>
+
+    <div class="Field">
+      <label for='headerStep3'>Заголовок Step3</label>
+      <input id='headerStep3' type='text' placeholder='Text' [(ngModel)]='contentData.mainStartStep3Header'>
+    </div>
+    <div class="Field">
+      <label for='textStep3'>Текст Step3</label>
+      <textarea id='textStep3' type='text' placeholder='Text' [(ngModel)]='contentData.mainStartStep3Description'></textarea>
+    </div>
+    <div class="Field">
+      <label for='buttonStep3'>Кнопка Step3</label>
+      <input id='buttonStep3' type='text' placeholder='Text' [(ngModel)]='contentData.mainStartStep3Button'>
+    </div>
+  </div>
+
+  <div class='Group'>
+    <h3>Main Servers</h3>
+
+    <div class="Field">
+      <label for='headerMonitoring'>Заголовок Monitoring</label>
+      <input id='headerMonitoring' type='text' placeholder='Text' [(ngModel)]='contentData.mainMonitoringHeader'>
+    </div>
+    <div class="Field">
+      <label for='textCurrentOnline'>Текст Current Online</label>
+      <input id='textCurrentOnline' type='text' placeholder='Text' [(ngModel)]='contentData.mainMonitoringCounter'>
+    </div>
+  </div>
+
+  <div class='Group'>
+    <h3>Main Social</h3>
+
+    <div class="Field">
+      <label for='headerSocial'>Заголовок Social</label>
+      <input id='headerSocial' type='text' placeholder='Text' [(ngModel)]='contentData.mainSocialHeader'>
+    </div>
+  </div>
+
+  <div class='Group'>
+    <h3>LK</h3>
+
+    <div class="Field">
+      <label>Цена HD скина</label>
+      <input type='text' placeholder='Text' [(ngModel)]='contentData.priceHdSkin'>
+    </div>
+    <div class="Field">
+      <label>Цена плаща</label>
+      <input type='text' placeholder='Text' [(ngModel)]='contentData.priceCloak'>
+    </div>
+    <div class="Field">
+      <label>Заголовок окна покупки</label>
+      <input type='text' placeholder='Text' [(ngModel)]='contentData.additionallyFunctionHeader'>
+    </div>
+    <div class="Field">
+      <label>Текст покупки HD скина</label>
+      <input type='text' placeholder='Text' [(ngModel)]='contentData.additionallyFunctionHdSkin'>
+    </div>
+    <div class="Field">
+      <label>Кнопка покупки HD скина</label>
+      <input type='text' placeholder='Text' [(ngModel)]='contentData.additionallyFunctionHdSkinButton'>
+    </div>
+    <div class="Field">
+      <label>Текст покупки плаща</label>
+      <input type='text' placeholder='Text' [(ngModel)]='contentData.additionallyFunctionCloak'>
+    </div>
+    <div class="Field">
+      <label>Кнопка покупки плаща</label>
+      <input type='text' placeholder='Text' [(ngModel)]='contentData.additionallyFunctionCloakButton'>
+    </div>
+  </div>
+
+
+</div>
+
+<div class='Footer'></div>
+
+<div class='FixedButtons'>
+  <app-button color='accent' size='s' [progressValue]='100' [progressBar]='dataUpdate' [disabled]='dataUpdate' (click)='save()'>Сохранить</app-button>
+  <app-button color='destructive' size='s' [progressValue]='100' [progressBar]='contentData === null' [disabled]='contentData === null' (click)='cancel()'>Отмена</app-button>
+</div>

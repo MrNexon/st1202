@@ -1,0 +1,26 @@
+<app-header></app-header>
+<app-card>
+  <app-page-header>Регистрация</app-page-header>
+  <form class="Form" (submit)='reg()' [formGroup]='regForm'>
+    <div class="Field">
+      <svg-icon class="Field-Icon" name="i-person"></svg-icon>
+      <input formControlName='username' name='username' type='text' placeholder='Введите никнейм'>
+    </div>
+    <div class="Field">
+      <svg-icon class="Field-Icon" name="i-email"></svg-icon>
+      <input formControlName='email' name='email' type='email' placeholder='Введите e-mail'>
+    </div>
+    <div class="Field">
+      <svg-icon class="Field-Icon" name="i-key"></svg-icon>
+      <input formControlName='password' name='password' type='password' placeholder='Введите пароль'>
+    </div>
+    <div class="Field">
+      <svg-icon class="Field-Icon" name="i-key"></svg-icon>
+      <input formControlName='retype_password' name='retype_password' type='password' placeholder='Повторите пароль'>
+    </div>
+    <app-field-validator [show]="validator !== null">{{validator}}</app-field-validator>
+    <app-button type='submit' [disabled]="inProgress">{{inProgress ? 'Регистрация...' : 'Зарегистрироваться'}}</app-button>
+  </form>
+</app-card>
+<app-footer footerLogo='{{pageData.footerLogo}}' footerDescription='{{pageData.footerCopyright}}' [social]='socialList'></app-footer>
+

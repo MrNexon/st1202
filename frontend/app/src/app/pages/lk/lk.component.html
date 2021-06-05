@@ -1,0 +1,60 @@
+<app-header></app-header>
+<app-card>
+  <app-page-header>Личный кабинет</app-page-header>
+  <div class="CardGrid">
+    <div class="Card" id="skin">
+      <h2>{{user?.nickname}}</h2>
+      <div class="Card-Skin">
+        <app-skin-viewer *ngIf='user' [username]='user.nickname' #skinViewer></app-skin-viewer>
+      </div>
+      <div class='row'>
+        <app-field-validator [show]="validator !== null">{{validator}}</app-field-validator>
+      </div>
+      <div class="row">
+        <input type="file" class='FileUpload' #skinUpload (change)="onInputFile('skin', $event)">
+        <app-button [progressBar]='skinUploadStatus !== null' [disabled]='skinUploadStatus !== null' [progressValue]='skinUploadStatus !== null ? skinUploadStatus : 0' (click)='skinUpload.click()'>Загрузить скин</app-button>
+      </div>
+      <div class="row">
+        <input type="file" class='FileUpload' #hdSkinUpload (click)="validateUserAdd('hd_skin', $event)" (change)="onInputFile('hd_skin', $event)">
+        <app-button color="accent" [progressBar]='hdSkinUploadStatus !== null' [disabled]='hdSkinUploadStatus !== null' [progressValue]='hdSkinUploadStatus !== null ? hdSkinUploadStatus : 0' (click)='hdSkinUpload.click()'><svg-icon *ngIf="!user.hd_skin_unlock" name="i-credit-card"></svg-icon> HD скин</app-button>
+
+        <input type="file" class='FileUpload' #cloakUpload (click)="validateUserAdd('cloak', $event)" (change)="onInputFile('cloak', $event)">
+        <app-button color="accent" [progressBar]='cloakUploadStatus !== null' [disabled]='cloakUploadStatus !== null' [progressValue]='cloakUploadStatus !== null ? cloakUploadStatus : 0' (click)='cloakUpload.click()'><svg-icon *ngIf="!user.cloak_unlock" name="i-credit-card"></svg-icon> Плащ</app-button>
+      </div>
+    </div>
+    <div class="Card" id="info">
+      <h2>Основная информация</h2>
+      <p id="welcome">Добро пожаловать в свой личный кабинет, {{user.nickname}}! Здесь вы можете посмотреть свою статистику, сменить скин и многое другое</p>
+      <p id="status">Статус: <span>N\A</span></p>
+      <p class="P-Counter">Дата регистрации: <span>{{createDate}}</span></p>
+      <p class="P-Counter">Часов в игре за месяц: <span>N\A</span></p>
+      <p class="P-Counter">Часов в игре за все время: <span>N\A</span></p>
+      <div class='BottomBlock'>
+        <p class="P-Counter" id='coins'>Коинов: <span>{{user.balance}}</span></p>
+      </div>
+    </div>
+  </div>
+
+</app-card>
+<app-footer footerLogo='{{pageData.footerLogo}}' footerDescription='{{pageData.footerCopyright}}' [social]='socialList'></app-footer>
+<app-dialog-window #dialogHdSkin header='{{pageData.additionallyFunctionHeader}}'>
+  <div class='DialogContent'>
+    <p>{{pageData.additionallyFunctionHdSkin}}</p>
+    <app-button color='accent' (click)="buyAction('hd_skin')">{{pageData.additionallyFunctionHdSkinButton}}</app-button>
+  </div>
+</app-dialog-window>
+
+<app-dialog-window #dialogCloak header='{{pageData.additionallyFunctionHeader}}'>
+  <div class='DialogContent'>
+    <p>{{pageData.additionallyFunctionCloak}}</p>
+    <app-button color='accent' (click)="buyAction('cloak')">{{pageData.additionallyFunctionCloakButton}}</app-button>
+  </div>
+</app-dialog-window>
+
+
+<app-dialog-window #dialogError header='Ошибка'>
+  <div class='DialogContent'>
+    <p>Недостаточно коинов</p>
+    <app-button color='accent' (click)="router.navigate(['/donate'])">Пополнить баланс</app-button>
+  </div>
+</app-dialog-window>

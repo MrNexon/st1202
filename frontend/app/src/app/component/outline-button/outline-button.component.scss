@@ -1,0 +1,48 @@
+:host {
+  display: inline-block;
+
+  --_OutlineButtonColor: white;
+  --_OutlineButtonHoverTextColor: black;
+
+  &[data-color='blue'] {
+    --_OutlineButtonColor: var(--blue);
+    --_OutlineButtonHoverTextColor: white;
+  }
+
+  &[data-color='orange'] {
+    --_OutlineButtonColor: var(--orange);
+    --_OutlineButtonHoverTextColor: white;
+  }
+
+  &[data-color='white'] {
+    --_OutlineButtonColor: var(--white);
+    --_OutlineButtonHoverTextColor: black;
+  }
+}
+
+.OutlineButton {
+  display: inline-block;
+  border: 2px solid var(--_OutlineButtonColor);
+  background-color: transparent;
+  border-radius: 23px;
+  color: var(--_OutlineButtonColor);
+  padding: 14px 26px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .1s ease;
+  width: 100%;
+
+  outline: none;
+
+  &:hover {
+    border: 2px solid transparent;
+    color: var(--_OutlineButtonHoverTextColor);
+    background-color: var(--_OutlineButtonColor);
+  }
+
+  &:active {
+    transform: scale(.95);
+  }
+}
