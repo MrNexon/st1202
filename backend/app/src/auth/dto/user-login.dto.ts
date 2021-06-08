@@ -44,7 +44,7 @@ export class UserLoginDto {
   /**
    * User UUID
    *
-   * @example 1b466391-951a-4ed4-a96f-63791b68925d
+   * @example 1b466391951a4ed4a96f63791b68925d
    */
 
   uuid: string;

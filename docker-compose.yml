@@ -16,7 +16,6 @@ services:
       - /usr/st1202/backend/node_modules
     links: 
       - db
-    restart: always
 
   frontend:
     build: ./frontend
@@ -30,7 +29,7 @@ services:
       - /usr/st1202/frontend/node_modules
     links: 
       - backend
-    restart: always
+    restart: on-failure
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -39,7 +38,6 @@ services:
       - db
     environment:
       PMA_HOST: db
-    restart: always
     ports:
       - 8080:80
 
@@ -51,4 +49,4 @@ services:
       MYSQL_ROOT_PASSWORD: v_z2LV.lprZ4Tw*r
     volumes:
       - ./db:/var/lib/mysql
-    restart: always
+    restart: on-failure

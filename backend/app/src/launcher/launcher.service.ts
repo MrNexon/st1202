@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Launcher } from '@prisma/client';
+import { launcher } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
@@ -18,7 +18,7 @@ export class LauncherService {
     return this.prisma.launcher.findMany({});
   }
 
-  update(l: Launcher[]) {
+  update(l: launcher[]) {
     l.forEach(async (l) => {
       const { platform, ...data } = l;
       await this.prisma.launcher.update({

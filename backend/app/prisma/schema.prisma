@@ -7,20 +7,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id               Int      @id @default(autoincrement())
-  nickname         String   @unique
-  password         String
-  email            String   @unique
-  ban              Boolean  @default(false)
-  balance          Float
-  create_timestamp DateTime @default(now())
-  cloak_unlock     Boolean  @default(false)
-  hd_skin_unlock   Boolean  @default(false)
-  is_admin         Boolean  @default(false)
+model content {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  value String
 }
 
-model Server {
+model launcher {
+  platform String  @id
+  link     String
+  display  Boolean
+}
+
+model server {
   id          Int    @id @default(autoincrement())
   name        String @unique
   description String
@@ -30,13 +29,7 @@ model Server {
   icon_src    String
 }
 
-model Content {
-  id    Int    @id @default(autoincrement())
-  name  String @unique
-  value String
-}
-
-model SocialData {
+model socialdata {
   id             Int     @id @default(autoincrement())
   type           String
   header         String
@@ -46,8 +39,17 @@ model SocialData {
   display_footer Boolean
 }
 
-model Launcher {
-  platform String  @id
-  link     String
-  display  Boolean
+model user {
+  id               Int      @id @default(autoincrement())
+  uuid             String   @unique
+  server_id        String?
+  nickname         String   @unique
+  password         String
+  email            String   @unique
+  ban              Boolean  @default(false)
+  balance          Float
+  create_timestamp DateTime @default(now())
+  cloak_unlock     Boolean  @default(false)
+  hd_skin_unlock   Boolean  @default(false)
+  is_admin         Boolean  @default(false)
 }

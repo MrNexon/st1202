@@ -6,6 +6,7 @@ import { LocalStrategy } from './local.strategy';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
 import { UserModule } from '../user/user.module';
+import {JwtInbodyStrategy} from "./jwt-inbody.strategy";
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { UserModule } from '../user/user.module';
     }),
     HttpModule,
   ],
-  providers: [AuthService, LocalStrategy, JwtStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy, JwtInbodyStrategy],
   controllers: [AuthController],
   exports: [AuthService],
 })

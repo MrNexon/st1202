@@ -10,7 +10,7 @@ import {
   UploadedFile,
   BadRequestException,
 } from '@nestjs/common';
-import { User } from '@prisma/client';
+import { user } from '@prisma/client';
 import { AuthJwtGuard } from '../auth/auth-jwt.guard';
 import { UserService } from './user.service';
 import { ApiBearerAuth, ApiOkResponse, OmitType } from '@nestjs/swagger';
@@ -39,7 +39,6 @@ export class UserController {
 
     return {
       ...user,
-      uuid: '1b466391-951a-4ed4-a96f-63791b68925d',
     };
   }
 
@@ -82,7 +81,7 @@ export class UserController {
     await this.userService.update(user);
   }
 
-  async oddBalance(user: User, amount: number) {
+  async oddBalance(user: user, amount: number) {
     if (user.balance - Number(amount) < 0)
       throw new BadRequestException('No balance');
 

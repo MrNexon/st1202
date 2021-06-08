@@ -6,13 +6,13 @@ import { Prisma } from '@prisma/client';
 export class ContentService {
   constructor(private prisma: PrismaService) {}
 
-  contents(where: Prisma.ContentWhereInput) {
+  contents(where: Prisma.contentWhereInput) {
     return this.prisma.content.findMany({
       where: where,
     });
   }
 
-  content(where: Prisma.ContentWhereUniqueInput) {
+  content(where: Prisma.contentWhereUniqueInput) {
     return this.prisma.content.findUnique({
       where: where,
     });

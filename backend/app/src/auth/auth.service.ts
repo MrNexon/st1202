@@ -1,9 +1,10 @@
-import { HttpException, HttpService, Injectable } from '@nestjs/common';
+import {HttpException, HttpService, Injectable, UnauthorizedException} from '@nestjs/common';
 import { UserService } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt';
-import { User } from '@prisma/client';
+import { user } from '@prisma/client';
 import { AuthLoginResponseDto } from './dto/auth-login-response.dto';
 import { AuthRegDto } from './dto/auth-reg.dto';
+import { v4 as uuidv4 } from 'uuid';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
@@ -27,12 +28,11 @@ export class AuthService {
     return null;
   }
 
-  async login(user: User): Promise<AuthLoginResponseDto> {
+  async login(user: user): Promise<AuthLoginResponseDto> {
     const payload = { nickname: user.nickname, id: user.id };
     return {
       User: {
         ...user,
-        uuid: 'no implement',
       },
       access_token: this.jwtService.sign(payload),
     };
@@ -58,9 +58,38 @@ export class AuthService {
         password: hash,
         email: authRegDto.email,
         balance: 0,
+        uuid: uuidv4().replace(/-*/g, '')
       });
     } catch (e) {
       throw new HttpException('Такой пользователь уже существует', 402);
     }
+  }
+
+  async connectServer(uuid: string, serverId: string) {
+    const user = await this.userService.user({
+      where: {
+        uuid: uuid
+      }
+    });
+
+    if (!user) throw new UnauthorizedException('User with this UUID does not exist');
+
+    user.server_id = serverId;
+    await this.userService.update(user);
+  }
+
+  async hasJoin(username: string, serverId: string): Promise<user> {
+    const user = await this.userService.user({
+      where: {
+        nickname: username
+      }
+    });
+
+    if (!user) throw new UnauthorizedException('This user does not exist')
+
+    if (user.server_id !== serverId)
+      throw new UnauthorizedException('Server ID does not match')
+
+    return user;
   }
 }

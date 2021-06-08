@@ -1,28 +1,28 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import { Prisma, Server } from '@prisma/client';
+import { Prisma, server } from '@prisma/client';
 import { SocialDto } from '../social-data/social.dto';
 
 @Injectable()
 export class ServerService {
   constructor(private prisma: PrismaService) {}
 
-  async server(where: Prisma.ServerWhereUniqueInput): Promise<Server> {
+  async server(where: Prisma.serverWhereUniqueInput): Promise<server> {
     return this.prisma.server.findUnique({
       where: where,
     });
   }
 
   async servers(params: {
-    where?: Prisma.ServerWhereInput;
-  }): Promise<Server[]> {
+    where?: Prisma.serverWhereInput;
+  }): Promise<server[]> {
     const { where } = params;
     return this.prisma.server.findMany({
       where,
     });
   }
 
-  update(server: Server) {
+  update(server: server) {
     const { id, ...data } = server;
     return this.prisma.server.update({
       where: {
@@ -32,7 +32,7 @@ export class ServerService {
     });
   }
 
-  updateFields(object: Server[]) {
+  updateFields(object: server[]) {
     object.forEach(async (s) => {
       if (s.name !== '') {
         const { id, ...data } = s;

@@ -7,13 +7,13 @@ async function bootstrap() {
     cors: true,
   });
 
-  /*const config = new DocumentBuilder()
+  const config = new DocumentBuilder()
     .setTitle('ST1202')
     .setDescription('API for ST1202')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('/', app, document);*/
+  SwaggerModule.setup('/', app, document);
 
   app.setGlobalPrefix('/api');
 

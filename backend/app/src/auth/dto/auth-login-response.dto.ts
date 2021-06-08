@@ -1,4 +1,3 @@
-import { User } from '@prisma/client';
 import { UserLoginDto } from './user-login.dto';
 
 export class AuthLoginResponseDto {
