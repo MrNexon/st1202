@@ -16,19 +16,30 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    cursor: pointer;
   }
 
   &-Links {
     display: flex;
     align-items: center;
+    margin-right: -30px;
 
     a {
       font-size: 15px;
       text-transform: uppercase;
       cursor: pointer;
-      margin-right: 60px;
+      padding: 12px 20px;
+      margin-right: 10px;
+      margin-left: 10px;
       color: white;
       text-decoration: none;
+      background-color: transparent;
+      transition: .1s ease-in-out;
+      border-radius: 8px;
+
+      &:hover {
+        background-color: #ffffff4f;
+      }
 
       &:last-child {
         margin-right: 0;

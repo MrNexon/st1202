@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
 
   public async anchorMove(anchorId: string): Promise<void> {
     await this.router.navigate(['/']);
-    this.viewportScroller.scrollToAnchor(anchorId);
+    const element = document.querySelector('#' + anchorId);
+    if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }

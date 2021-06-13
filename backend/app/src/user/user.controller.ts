@@ -83,7 +83,7 @@ export class UserController {
 
   async oddBalance(user: user, amount: number) {
     if (user.balance - Number(amount) < 0)
-      throw new BadRequestException('No balance');
+      throw new BadRequestException('Недостаточно средств');
 
     user.balance -= Number(amount);
     await this.userService.update(user);
